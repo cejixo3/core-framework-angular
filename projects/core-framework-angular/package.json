@@ -1,0 +1,16 @@
+{
+  "name": "core-framework-angular",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.12",
+    "@angular/core": "^8.2.12",
+    "@angular/router": "^8.2.12",
+    "@angular/forms": "^8.2.12",
+    "validate.js": "^0.13.1",
+    "ngx-toastr": "^11.1.2",
+    "@ng-select/ng-select": "^3.3.0",
+    "bootstrap": "^4.3.1",
+    "angular2-datetimepicker": "^1.1.1",
+    "@fortawesome/fontawesome-free": "^5.11.2"
+  }
+}

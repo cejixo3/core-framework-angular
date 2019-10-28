@@ -1,0 +1,17 @@
+<div [ngClass]="getStyles()">
+    <img src="/Assets/google-search.png" alt="">
+    <div class="search-item">
+        <h3 class="title">
+            {{getTitle()}}
+        </h3>
+        <div class="link-wrapper">
+            <cite class="link">
+                {{getLink()}}
+            </cite>
+        </div>
+        <br>
+        <span class="description">
+        {{getDescription()}}
+    </span>
+    </div>
+</div>

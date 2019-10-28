@@ -1,0 +1,26 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+
+    <div *ngIf="!attribute.value()" class="empty-image">
+
+    </div>
+    <img *ngIf="attribute.value()" src="{{buildImageUrl(attribute.value())}}" alt="">
+
+    <br>
+    <button (click)="select()" class="btn btn-outline-info">
+        Выбрать картинку [{{attribute.label()}}]
+    </button>
+
+
+    <div *ngIf="attribute.description()">
+        <small *ngFor="let descr of attribute.description().split('\n')" class="form-text text-muted">
+            {{descr}}
+        </small>
+    </div>
+
+
+    <div *ngIf="hasErrors()" class="invalid-feedback">
+        <p *ngFor="let err of errors()">{{err}}</p>
+    </div>
+
+</div>

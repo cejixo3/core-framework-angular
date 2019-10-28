@@ -1,0 +1,51 @@
+.search-item {
+  max-width: 600px;
+  margin-left: 163px;
+  margin-top: 21px;
+}
+
+.title {
+  font-size: 18px;
+  line-height: 1.33;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #1a0dab;
+  font-family: arial, sans-serif;
+}
+
+.link-wrapper {
+  line-height: 1.54;
+  padding-bottom: 1px;
+  display: inline-block;
+  padding-top: 1px;
+
+}
+
+.link {
+  font-size: 14px;
+  padding-top: 1px;
+  line-height: 1.43;
+  color: #006621;
+  font-style: normal;
+  font-family: arial, sans-serif;
+}
+
+.description {
+  line-height: 1.54;
+  color: #545454;
+  word-wrap: break-word;
+  font-family: arial, sans-serif;
+  font-size: small;
+  text-align: left;
+}
+
+.no-search {
+  .search-item {
+    margin: 0;
+  }
+  img {
+    display: none;
+  }
+}

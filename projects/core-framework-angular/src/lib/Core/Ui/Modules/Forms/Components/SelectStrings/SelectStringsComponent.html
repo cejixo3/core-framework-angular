@@ -1,0 +1,15 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+    <label>{{attribute.label()}}</label>
+
+    <ng-select placeholder="{{attribute.label()}}"
+               [items]="[]"
+               [multiple]="true"
+               [addTag]="addTag"
+               [(ngModel)]="value">
+    </ng-select>
+    <small *ngIf="attribute.description()" class="form-text text-muted">{{attribute.description()}}</small>
+    <div *ngIf="hasErrors()" class="text-danger">
+        <p class="ui-form-element-error" *ngFor="let err of errors()">{{err}}</p>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<!--<div [ngClass]="{'ui-tab-set':true,'horizontal':direction === 'horizontal','vertical':direction === 'vertical'}">-->
+    <!--<ul class="ui-tab-nav">-->
+        <!--<li [ngClass]="{'ui-tab-nav-item':true,'active':tab.active}" *ngFor="let tab of tabs" (click)="selectTab(tab)">-->
+            <!--{{tab.title}}-->
+        <!--</li>-->
+    <!--</ul>-->
+    <!--<div class="ui-tabs">-->
+        <!---->
+    <!--</div>-->
+<!--</div>-->
+
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item" *ngFor="let tab of tabs">
+        <button [ngClass]="{'btn':true,'btn-link':true,'nav-link':true,'active':tab.active}" (click)="selectTab(tab)">
+            {{tab.title}}
+        </button>
+    </li>
+</ul>
+<div class="tab-content">
+    <ng-content></ng-content>
+</div>

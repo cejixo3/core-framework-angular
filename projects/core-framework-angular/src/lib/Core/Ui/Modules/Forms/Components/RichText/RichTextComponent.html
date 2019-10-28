@@ -1,0 +1,18 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+    <label>{{attribute.label()}}</label>
+
+    <ckeditor  [editor]="Editor" [config]="config" (ready)="onReady($event)" [(ngModel)]="value"></ckeditor>
+
+    <div *ngIf="attribute.description()">
+        <small *ngFor="let descr of attribute.description().split('\n')" class="form-text text-muted">
+            {{descr}}
+        </small>
+    </div>
+
+
+    <div *ngIf="hasErrors()" class="invalid-feedback">
+        <p *ngFor="let err of errors()">{{err}}</p>
+    </div>
+
+</div>

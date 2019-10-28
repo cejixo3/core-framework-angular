@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-3">
+        <div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+            <label>{{attribute.label()}}</label>
+
+            <input type="color"
+                   placeholder="{{attribute.label()}}"
+                   [ngClass]="{'form-control':true,'is-invalid':hasErrors()}"
+                   [name]="attribute.label()"
+                   [(ngModel)]="value">
+
+            <div *ngIf="hasErrors()" class="invalid-feedback">
+                <p *ngFor="let err of errors()">{{err}}</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="clearfix">
+            <button (click)="selectColor(color)" type="button" class="float-left predefined-color" *ngFor="let color of predefinedColors" [ngStyle]="{'background-color':color}">
+
+            </button>
+        </div>
+    </div>
+</div>

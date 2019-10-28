@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <span>{{getModalTitle()}}</span>
+</div>
+<div class="modal-body">
+    <p>{{getText()}}</p>
+</div>
+<div class="modal-toolbar text-right">
+    <div class="btn-group" role="group">
+        <button class="btn btn-success" (click)="save()"><i style="color: red" class="fas fa-time"></i> Confirm</button>
+        <button class="btn btn-danger" (click)="discard()"><i style="color: red" class="fas fa-time"></i> Cancel
+        </button>
+    </div>
+</div>

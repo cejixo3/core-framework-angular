@@ -1,0 +1,16 @@
+<div [ngClass]="{'ui-form-element':true,'ui-form-select-id-model-list':true,'error':hasErrors()}">
+
+    <label>{{attribute.label()}}</label>
+
+    <ng-select placeholder="{{attribute.label()}}"
+               [items]="list"
+               bindLabel="key"
+               bindValue="value"
+               [(ngModel)]="value"
+               (change)="onChange($event)">
+    </ng-select>
+    <small *ngIf="attribute.description()" class="form-text text-muted">{{attribute.description()}}</small>
+    <div *ngIf="hasErrors()" class="text-danger">
+        <p class="ui-form-element-error" *ngFor="let err of errors()">{{err}}</p>
+    </div>
+</div>

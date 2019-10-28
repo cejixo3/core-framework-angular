@@ -1,0 +1,35 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+    <label>{{attribute.label()}}</label>
+
+    <div *ngFor="let val of value">
+        <div class="input-group mb-3">
+            <input type="text"
+                   placeholder="{{attribute.label()}}"
+                   [ngClass]="{'form-control':true,'is-invalid':hasErrors()}"
+                   [name]="attribute.label()"
+                   [(ngModel)]="val">
+            <div class="input-group-append">
+                <span class="input-group-text text-danger" (click)="remove(val)">- Remove</span>
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="input-group mb-3">
+        <input type="text"
+               placeholder="{{attribute.label()}}"
+               [ngClass]="{'form-control':true,'is-invalid':hasErrors()}"
+               [name]="attribute.label()"
+               [(ngModel)]="newString">
+        <div class="input-group-append">
+            <span class="input-group-text text-primary" (click)="addNewString()">+ Add</span>
+        </div>
+    </div>
+    <small *ngIf="attribute.description()" class="form-text text-muted">{{attribute.description()}}</small>
+    <div *ngIf="hasErrors()" class="invalid-feedback">
+        <p *ngFor="let err of errors()">{{err}}</p>
+    </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+    <label>{{attribute.label()}}</label>
+
+    <input type="range"
+           placeholder="{{attribute.label()}}"
+           [ngClass]="{'form-control':true,'is-invalid':hasErrors(),'slider':true}"
+           [name]="attribute.label()"
+           min="{{min}}"
+           max="{{max}}"
+           [(ngModel)]="value">
+    <small *ngIf="attribute.description()" class="form-text text-muted">{{attribute.description()}}</small>
+    <div *ngIf="hasErrors()" class="invalid-feedback">
+        <p *ngFor="let err of errors()">{{err}}</p>
+    </div>
+
+</div>

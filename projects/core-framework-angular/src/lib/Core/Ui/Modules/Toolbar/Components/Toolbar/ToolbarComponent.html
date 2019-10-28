@@ -1,0 +1,8 @@
+<div class="btn-toolbar">
+    <ng-content></ng-content>
+    <div class="btn-group mr-2" role="group" *ngFor="let action of actions">
+        <ui-toolbar-simple-action
+                [action]="action">
+        </ui-toolbar-simple-action>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+    <div class="form-check">
+        <input type="checkbox"
+               [disabled]="disabled"
+               id="{{elId}}"
+               [ngClass]="{'form-check-input':true,'is-invalid':hasErrors()}"
+               [name]="attribute.label()"
+               [(ngModel)]="value">
+        <label for="{{elId}}" class="form-check-label">{{attribute.label()}}
+        </label>
+        <small *ngIf="attribute.description()" class="form-text text-muted">{{attribute.description()}}</small>
+        <div *ngIf="hasErrors()" class="invalid-feedback">
+            <p *ngFor="let err of errors()">{{err}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<a *ngIf="externalLink" href="{{externalLink}}"  target="_blank" class="text-info">
+    <i class="fas fa-external-link-alt"></i>
+</a>
+
+
+<a *ngIf="link" routerLink="{{link}}"
+   routerLinkActive="active">
+    {{attr.value()}}
+</a>
+
+<span *ngIf="!link">{{attr.value()}}</span>

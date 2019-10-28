@@ -1,0 +1,23 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+    <label>{{attribute.label()}}</label>
+
+
+    <angular2-date-picker
+            *ngIf="hasVal()"
+            (onDateSelect)="onDateSelect($event)"
+            [(ngModel)]="value"
+            [settings]="settings"></angular2-date-picker>
+
+    <div *ngIf="attribute.description()">
+        <small *ngFor="let descr of attribute.description().split('\n')" class="form-text text-muted">
+            {{descr}}
+        </small>
+    </div>
+
+
+    <div *ngIf="hasErrors()" class="invalid-feedback">
+        <p *ngFor="let err of errors()">{{err}}</p>
+    </div>
+
+</div>

@@ -1,0 +1,9 @@
+<div [ngClass]="getRootCssClasses()">
+    <ui-form-text (keydown)="onKeydown($event)" *ngIf="action.hasAttribute()" [attribute]="action.getAttribute()"></ui-form-text>
+    <button [ngClass]="action.btnClasses()"
+            [disabled]="isDisabled()"
+            (click)="run()">
+        <i *ngIf="action.iconClasses().length" [ngClass]="action.iconClasses()"></i>
+        {{action.label()}}
+    </button>
+</div>

@@ -1,0 +1,18 @@
+<div [ngClass]="{'form-group':true,'error':hasErrors()}">
+
+    <label *ngIf="showLabel">{{attr.label()}}</label>
+
+    <div class="row">
+        <div class="col-md-6">
+            <ui-form-select-enum [enumerable]="eMonths" [attribute]="month"></ui-form-select-enum>
+        </div>
+        <div class="col-md-6">
+            <ui-form-select-enum [enumerable]="eYears" [attribute]="year"></ui-form-select-enum>
+        </div>
+    </div>
+    <small *ngIf="attr.description()" class="form-text text-muted">{{attr.description()}}</small>
+    <div *ngIf="hasErrors()" class="invalid-feedback">
+        <p *ngFor="let err of errors()">{{err}}</p>
+    </div>
+
+</div>

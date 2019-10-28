@@ -1,0 +1,45 @@
+<div class="form-group" *ngIf="quickSearch.length > 0">
+    <input [(ngModel)]="quickSearchQuery" type="text" class="form-control" id="quickSearch" aria-describedby="emailHelp"
+           placeholder="Enter search term">
+</div>
+<div class="table-responsive">
+    <table class="table table-sm table-hover">
+        <thead>
+        <tr>
+            <th *ngIf="models !== null && models.list() !== null">
+                <div class="form-check table-check-all">
+                    <div class="ui-checkbox">
+                        <input type="checkbox"
+                               class="form-check-input"
+                               [(ngModel)]="isAllChecked">
+                    </div>
+                </div>
+            </th>
+            <th *ngFor="let header of headerList" scope="col">
+                <span *ngIf="header.sort === false">{{header.label}}</span>
+                <button type="button" class="btn btn-link btn-sm" *ngIf="header.sort === true"
+                        (click)="toggleSort(header.attributeName)">
+                    {{header.label}}
+                    <i *ngIf="isSortEnabled(header.attributeName)"
+                       [ngClass]="{'fas':true,'fa-arrow-down':sortDir(header.attributeName) === SORT.DESC,'fa-arrow-up':sortDir(header.attributeName) === SORT.ASC}"></i>
+                </button>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-content></ng-content>
+        <tr *ngFor="let model of collection.data() | search:quickSearch.join(','):quickSearchQuery; let i = index"
+            [ngStyle]="{'background-color':getRowColor(i,model)}">
+            <td *ngIf="models !== null && models.list() !== null">
+                <ui-grid-column-checkable (changed)="onCheckedStateChange($event)"
+                                          [model]="model"></ui-grid-column-checkable>
+            </td>
+            <td *ngFor="let col of columns; let i = index">
+                <ng-container *ngTemplateOutlet="getTemplate(i); context: {model:model}"></ng-container>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <ui-waiter-common *ngIf="collection.dataProvider().isWaitingForTransport()"></ui-waiter-common>
+</div>
+<ui-grid-paginate *ngIf="pagination" [provider]="collection.dataProvider()"></ui-grid-paginate>

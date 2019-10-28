@@ -1,0 +1,40 @@
+<div class="d-flex flex-row-reverse bd-highlight">
+    <div class="p-2 bd-highlight">
+        <select class="form-control"
+                [disabled]="isDisabled"
+                [(ngModel)]="pageSize"
+                (change)="changePageSize()">
+            <option *ngFor="let size of pageSizes" [ngValue]="size">{{size}}</option>
+        </select>
+    </div>
+    <div class="p-2 bd-highlight">
+
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li [ngClass]="{'page-item':true,'previous':true,'disabled':!hasPrev}">
+                    <button class="btn btn-link page-link"
+                            (click)="goPrev()"
+                            [disabled]="!hasPrev"><span
+                            aria-hidden="true">&larr;</span> Previous
+                    </button>
+                </li>
+                <li *ngFor="let item of items;" [ngClass]="{'page-item':true,'active':item.active}">
+                    <button [ngClass]="{'page-link':true,'btn':true,'btn-link':true,'btn-bordered':item.active}"
+                            [disabled]="isDisabled"
+                            (click)="goTo(item)">
+                        {{item.id + 1}}
+                    </button>
+                </li>
+
+                <li [ngClass]="{'page-item':true,'next':true,'disabled':!hasNext}">
+                    <button class="btn btn-link page-link"
+                            (click)="goNext()"
+                            [disabled]="!hasNext"><span
+                            aria-hidden="true">&rarr;</span>
+                        Next ({{allUiRecordsCount}})
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

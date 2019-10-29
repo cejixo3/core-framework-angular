@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
 import {IDataProviderFactory} from './Interfaces/DataProvider/IDataProviderFactory';
 import {BasicModalService} from './Ui/Modules/Modals/Services/BasicModalService';
-import {CollectionQuery} from "./Providers/CollectionQuery";
+import {CollectionQuery} from './Providers/CollectionQuery';
 
 class SL {
 
@@ -34,11 +34,10 @@ class SL {
 
     /**
      * Provide instance of data provider
-     * @returns {IDataProviderFactory}
      */
     public getDataProviderFactory(): IDataProviderFactory {
         return this.dataProviderFactory;
     }
 }
 
-export var ServiceLocator = new SL();
+export const ServiceLocator = new SL();

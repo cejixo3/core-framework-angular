@@ -31,13 +31,12 @@ export class FileComponent {
     @Input() accept = '';
     @Input() options: IUploadOptions = {url: 'localhost'};
     @Output() done: EventEmitter<IUploadResult> = new EventEmitter<IUploadResult>();
-    @ViewChild('file') file;
+    @ViewChild('file', {static: false}) file;
     public files: Set<File> = new Set();
 
 
     /**
-     * Is Button disabled or not
-     * @returns {boolean}
+     * Is Button isDisabled or not
      */
     public isDisabled(): boolean {
         return this.buttonState === this.BUTTON_STATES.WAIT_FOR_RESPONSE;
@@ -45,7 +44,6 @@ export class FileComponent {
 
     /**
      * Provide button styles
-     * @returns {string}
      */
     public buttonStyles(): string {
         const styles = ['btn'];
@@ -60,7 +58,6 @@ export class FileComponent {
 
     /**
      * Provide label
-     * @returns {string}
      */
     public buttonLabel(): string {
         switch (this.buttonState) {

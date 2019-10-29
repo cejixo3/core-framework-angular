@@ -1,7 +1,7 @@
 import {AModelBulkActon} from '../AModelBulkActon';
 import {IModel} from '../../Interfaces/DataStructures/Models/IModel';
 import {IBaseModel} from '../../Interfaces/DataStructures/Models/IBaseModel';
-import {SL} from '../../SL';
+import {ServiceLocator} from '../../ServiceLocator';
 import {ActionNames} from '../../Interfaces/IModelBulkActon';
 
 export interface ICondition {
@@ -74,7 +74,7 @@ export class PModelBulkRemoveAction extends AModelBulkActon {
                 reject(new Error(`Could not to execute action "${this.label()}" because canRun fails`));
                 return;
             }
-            SL.modal()
+            ServiceLocator.modal()
                 .confirm(
                     this.label(),
                     `Do you really want to remove these models (${models.length})?`

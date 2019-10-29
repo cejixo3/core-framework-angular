@@ -1,6 +1,7 @@
 {
-  "name": "core-framework-angular",
-  "version": "0.0.1",
+  "name": "@cejixo3dr/core-framework-angular",
+  "version": "0.0.8",
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^8.2.12",
     "@angular/core": "^8.2.12",
@@ -11,6 +12,8 @@
     "@ng-select/ng-select": "^3.3.0",
     "bootstrap": "^4.3.1",
     "angular2-datetimepicker": "^1.1.1",
-    "@fortawesome/fontawesome-free": "^5.11.2"
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "@cejixo3dr/ckeditor5-build-decoupled-document": "^12.1.2",
+    "@ckeditor/ckeditor5-angular": "^1.1.0"
   }
 }

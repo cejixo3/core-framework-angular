@@ -2,7 +2,7 @@ import {OnDestroy, OnInit} from '@angular/core';
 import {ICollection} from '../../../../../Interfaces/DataStructures/Collections/ICollection';
 import {ICollectionQuery} from '../../../../../Interfaces/DataStructures/Queries/ICollectionQuery';
 import {GlobalSearch} from '../../../../../Services/GlobalSearch';
-import {SL} from '../../../../../SL';
+import {ServiceLocator} from '../../../../../ServiceLocator';
 import {IModelBulkActon} from '../../../../../Interfaces/IModelBulkActon';
 import {ABreadCrumbComponent} from '../BreadCrumb/ABreadCrumbComponent';
 
@@ -14,7 +14,7 @@ export abstract class AListComponent extends ABreadCrumbComponent implements OnI
 
     public constructor() {
         super();
-        this.gs = SL.injector.get(GlobalSearch);
+        this.gs = ServiceLocator.injector.get(GlobalSearch);
         this._collection = this.makeCollection();
         this.loadCollection();
         this._actions = this.makeDefaultActions().concat(this.makeActions());
@@ -27,7 +27,6 @@ export abstract class AListComponent extends ABreadCrumbComponent implements OnI
     /**
      * Base actions.
      * If you want to add some actions you must redefine this method
-     * @return {IModelBulkActon[]}
      */
     protected makeActions(): IModelBulkActon[] {
         return [];
@@ -35,7 +34,6 @@ export abstract class AListComponent extends ABreadCrumbComponent implements OnI
 
     /**
      * Creates a new instance of collection for working with it
-     * @return {ICollection}
      */
     protected abstract makeCollection(): ICollection;
 
@@ -56,7 +54,6 @@ export abstract class AListComponent extends ABreadCrumbComponent implements OnI
 
     /**
      * Provides collection reference
-     * @return {ICollection}
      */
     public collection(): ICollection {
         return this._collection;
@@ -80,7 +77,6 @@ export abstract class AListComponent extends ABreadCrumbComponent implements OnI
 
     /**
      *
-     * @return {ICollectionQuery}
      */
     protected collectionQuery(): ICollectionQuery {
         throw new Error('You must Override collection Query before use it');
@@ -88,7 +84,6 @@ export abstract class AListComponent extends ABreadCrumbComponent implements OnI
 
     /**
      * Provide actions list
-     * @return {IModelBulkActon[]}
      */
     public actions(): IModelBulkActon[] {
         if (this._actions.length === 0) {

@@ -1,7 +1,7 @@
 import {HttpEventType, HttpHeaders, HttpRequest, HttpResponse, HttpResponseBase} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
-import {SL} from '../SL';
+import {ServiceLocator} from '../ServiceLocator';
 
 export interface IUploadOptions {
     url: string;
@@ -23,9 +23,6 @@ export class UploadFileService {
 
     /**
      * Upload files to server
-     * @param {{ file: File, title: string, alt: string }[]} files
-     * @param {IUploadOptions} options
-     * @return {IUploadResult}
      */
     public upload(files: { file: File, title: string, alt: string }[], options: IUploadOptions): IUploadResult {
         const status: IUploadResult = {};
@@ -60,7 +57,7 @@ export class UploadFileService {
                 response: null
             };
 
-            SL.http().request(req).subscribe(event => {
+            ServiceLocator.http().request(req).subscribe(event => {
                 if (event.type === HttpEventType.UploadProgress) {
                     const percentDone = Math.round(100 * event.loaded / event.total);
                     progress.next(percentDone);

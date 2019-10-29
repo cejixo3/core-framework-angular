@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {IAttribute} from '../../../../../Interfaces/DataStructures/IAttribute';
-import {getStaticsAddr} from '../../../../../../Modules/ApiDefinitions/Endpoints';
 
 interface IImg {
     id: string; // image id
@@ -63,7 +62,7 @@ export class ImageUrlComponent {
     }
 
     buildImageUrl(path: string): string {
-        return getStaticsAddr() + '/uploads/' + path;
+        return '/uploads/' + path;
     }
 
     hasErrors(): boolean {

@@ -21,8 +21,8 @@ export class CollectionQuery extends BaseQuery implements ICollectionQuery {
             fts.push('name');
         }
         this._query = term ? fts.reduce((p, c) => {
-            let t = {};
-            t[c] = {'$regex': term, $options: 'i'};
+            const t = {};
+            t[c] = {$regex: term, $options: 'i'};
             p.$or.push(t);
             return p;
         }, {$or: []}) : {};
@@ -48,9 +48,6 @@ export class CollectionQuery extends BaseQuery implements ICollectionQuery {
 
     /**
      *
-     * @param {string} attributeName
-     * @param {string} direction
-     * @returns {this}
      */
     public setSort(attributeName: string, direction: string): this {
         if ([SORT.ASC, SORT.DESC].indexOf(direction) === -1) {

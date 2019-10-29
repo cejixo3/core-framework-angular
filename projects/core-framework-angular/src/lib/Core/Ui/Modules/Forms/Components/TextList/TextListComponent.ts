@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {IAttribute} from '../../../../../Interfaces/DataStructures/IAttribute';
 
+// @todo
 @Component({
     selector: 'ui-form-text-list',
     templateUrl: './TextListComponent.html',
@@ -14,7 +15,6 @@ export class TextListComponent {
 
     /**
      * Check is new line needed
-     * @returns {boolean}
      */
     public addNewString() {
         if (this.newString !== '') {
@@ -25,7 +25,6 @@ export class TextListComponent {
 
     /**
      *
-     * @param {string} record
      */
     public remove(record) {
         let index = this.attribute.value().indexOf(record);
@@ -34,11 +33,11 @@ export class TextListComponent {
         }
     }
 
-    set value(val: string) {
+    set value(val: string[]) {
         this.attribute.setValue(val);
     }
 
-    get value(): string {
+    get value(): string[] {
         if (!Array.isArray(this.attribute.value())) {
             throw new Error('ui-form-text-list supports only []string attributes! Got: ' + typeof this.attribute.value());
         }

@@ -13,7 +13,6 @@ export class ModelList {
     private _em: EventEmitter<IModelListActionEvent> = new EventEmitter();
 
     /**
-     * @return EventEmitter<IModelListActionEvent>
      */
     public em() {
         return this._em;
@@ -21,7 +20,6 @@ export class ModelList {
 
     /**
      * Provide reference for list
-     * @return {IModel[]}
      */
     public list(): IModel[] {
         return this._list;

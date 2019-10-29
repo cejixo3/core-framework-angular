@@ -1,7 +1,7 @@
 $color: #007bff;
 $height: 15px;
 $ball-size: 25px;
-.slider {
+.ServiceLocatorider {
   -webkit-appearance: none;
   width: 100%;
   height: $height;
@@ -13,7 +13,7 @@ $ball-size: 25px;
   transition: opacity .2s;
 }
 
-.slider::-webkit-slider-thumb {
+.ServiceLocatorider::-webkit-ServiceLocatorider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: $ball-size;
@@ -23,7 +23,7 @@ $ball-size: 25px;
   cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
+.ServiceLocatorider::-moz-range-thumb {
   width: $ball-size;
   height: $ball-size;
   border-radius: 50%;

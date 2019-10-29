@@ -12,7 +12,7 @@ export class TextComponent {
     @Input() multiline = false;
     @Input() rows = 5;
     @Output() onChange = new EventEmitter<IAttribute>();
-    @Input() disabled: boolean = false;
+    @Input() isDisabled: boolean = false;
 
     set value(val: string) {
         this.attribute.setValue(val);

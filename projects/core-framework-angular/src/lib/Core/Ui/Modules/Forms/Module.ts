@@ -16,13 +16,13 @@ import {SelectIdModelListComponent} from './Components/SelectIdModelList/SelectI
 import {SelectIdsCollectionComponent} from './Components/SelectIdsCollection/SelectIdsCollectionComponent';
 import {ErrorsOutPutComponent} from './Components/ErrorsOutPut/ErrorsOutPutComponent';
 import {TextListComponent} from './Components/TextList/TextListComponent';
-import {RichTextComponent} from "./Components/RichText/RichTextComponent";
-import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import {RichTextComponent} from './Components/RichText/RichTextComponent';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {ImageUrlComponent} from './Components/ImageUrl/ImageUrlComponent';
-import {ManageHeaderComponent} from "./Components/ManageHeader/ManageHeaderComponent";
-import {WaitersModule} from "../Waiters/Module";
-import {DateTimeComponent} from "./Components/DateTime/DateTimeComponent";
-import {AngularDateTimePickerModule} from "angular2-datetimepicker";
+import {ManageHeaderComponent} from './Components/ManageHeader/ManageHeaderComponent';
+import {WaitersModule} from '../Waiters/Module';
+import {DateTimeComponent} from './Components/DateTime/DateTimeComponent';
+import {AngularDateTimePickerModule} from 'angular2-datetimepicker';
 
 @NgModule({
     imports: [

@@ -59,7 +59,6 @@ export abstract class AManageComponent extends ABreadCrumbComponent {
 
     /**
      * Provide reference for model instance
-     * @return {IModel}
      */
     public model(): IModel | any {
         return this._model;
@@ -67,13 +66,11 @@ export abstract class AManageComponent extends ABreadCrumbComponent {
 
     /**
      * Provide constructor for creating model
-     * @return {IModel}
      */
     protected abstract modelConstructor(): IModel;
 
     /**
      * Provide field that's represent primary key
-     * @return {string}
      */
     public pkFieldName(): string {
         return 'id';
@@ -81,7 +78,6 @@ export abstract class AManageComponent extends ABreadCrumbComponent {
 
     /**
      * Provide field name for titling
-     * @return {string}
      */
     public titleFieldName(): string {
         return 'name';
@@ -89,7 +85,6 @@ export abstract class AManageComponent extends ABreadCrumbComponent {
 
     /**
      * Provide current instance of Component
-     * @return {this}
      */
     public self(): this {
         return this;

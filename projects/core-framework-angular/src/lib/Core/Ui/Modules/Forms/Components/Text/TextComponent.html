@@ -3,7 +3,7 @@
     <label>{{attribute.label()}}</label>
 
     <input *ngIf="multiline === false" type="text"
-           [disabled]="disabled"
+           [disabled]="isDisabled"
            placeholder="{{attribute.label()}}"
            [ngClass]="{'form-control':true,'is-invalid':hasErrors()}"
            [name]="attribute.label()"

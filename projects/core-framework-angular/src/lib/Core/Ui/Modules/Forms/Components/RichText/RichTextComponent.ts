@@ -71,7 +71,7 @@ export class RichTextComponent implements OnDestroy {
             {name: 'thinking face', text: '🤔'},
             {name: 'zipper-mouth face', text: '🤐'},
             {name: 'grimacing face', text: '😬'},
-            {name: 'sleeping face', text: '😴'},
+            {name: 'ServiceLocatoreeping face', text: '😴'},
             {name: 'smiling face with sunglasses', text: '😎'},
             {name: 'see-no-evil monkey', text: '🙈'},
             {name: 'pile of poo', text: '💩'},

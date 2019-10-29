@@ -1,4 +1,4 @@
-import {SL} from '../SL';
+import {ServiceLocator} from '../ServiceLocator';
 import {IEndpoint} from '../Interfaces/DataStructures/IEndpoint';
 
 export function ModelProviderDecorator(options: {
@@ -6,9 +6,9 @@ export function ModelProviderDecorator(options: {
     apiUrl?: string
 }) {
 
-    return function <T extends { new(...args: any[]): {} }>(constructor: T) {
+    return function <T extends new(...args: any[]) => {}>(constructor: T) {
         return class extends constructor {
-            $dp = SL.getDataProviderFactory().model(options.endpoint, this);
+            $dp = ServiceLocator.getDataProviderFactory().model(options.endpoint, this);
         };
     };
 }

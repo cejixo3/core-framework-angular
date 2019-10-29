@@ -11,7 +11,6 @@ export class ManageHeaderComponent {
 
     /**
      * Provide save button label
-     * @return {string}
      */
     public btnLabel(): string {
         return this
@@ -23,7 +22,6 @@ export class ManageHeaderComponent {
 
     /**
      * Provide title
-     * @return {string}
      */
     public title(): string {
         return this.component.model().attribute(this.component.titleFieldName()).value();
@@ -31,7 +29,6 @@ export class ManageHeaderComponent {
 
     /**
      * Unix timestamp when record was updated
-     * @return {number}
      */
     public getRecordUpdatedAt(): number {
         return this.component.model().attribute('updated_at').value()
@@ -39,7 +36,6 @@ export class ManageHeaderComponent {
 
     /**
      * Is record was updated or not
-     * @return {boolean}
      */
     public isUpdated(): boolean {
         return this.getRecordUpdatedAt() > 0;

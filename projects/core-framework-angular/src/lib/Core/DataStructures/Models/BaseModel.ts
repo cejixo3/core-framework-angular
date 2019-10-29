@@ -14,7 +14,6 @@ export abstract class ABaseModel implements IBaseModel {
 
     /**
      * Internal dictionary for keeping attributes
-     * @private
      */
     protected attributes = {};
 
@@ -50,8 +49,6 @@ export abstract class ABaseModel implements IBaseModel {
 
     /**
      * Detect null values for each type
-     * @param {*} type
-     * @return {*}
      */
     private nullValueByType(type: any): any {
         if (this.isTypeLocalized(type)) {
@@ -79,7 +76,6 @@ export abstract class ABaseModel implements IBaseModel {
 
     /**
      * Initi attributes after model construct
-     * @return {IBaseModel}
      */
     private initEmptyAttributes(): IBaseModel {
         Object
@@ -90,8 +86,6 @@ export abstract class ABaseModel implements IBaseModel {
 
     /**
      * Checks is T localized model
-     * @param t
-     * @return {boolean}
      */
     private isTypeLocalized(t: any): boolean {
         return Array.isArray(t) && t.length >= 3 && t[0] === 'localized';
@@ -106,9 +100,6 @@ export abstract class ABaseModel implements IBaseModel {
 
     /**
      * Defining each attribute by declared schema
-     * @param {string} name
-     * @param value
-     * @return {IBaseModel}
      */
     private setAttributeBySchema(name: string, value: any): this {
         if (this.schema().hasOwnProperty(name)) {
@@ -265,7 +256,6 @@ export abstract class ABaseModel implements IBaseModel {
 
     /**
      * Represent this model as JSON object annotation
-     * @return {*}
      */
     toJSON() {
         return Object.keys(this.schema()).reduce((p, c, i, a) => {
@@ -311,8 +301,6 @@ export abstract class ABaseModel implements IBaseModel {
 
     /**
      * @todo add ability to detect models
-     * @param {Array<string>} names
-     * @return {{[p: string]: any}}
      */
     copyRawAttributes(names?: Array<string>): { [name: string]: any } {
         try {

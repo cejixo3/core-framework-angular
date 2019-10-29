@@ -25,8 +25,6 @@ export class DurationValueAdapter implements IValueAdapter {
 
     /**
      *
-     * @param {string} part 1d
-     * @return {number}
      */
     private extractSecFrom(part: string): number {
         let s = 0;
@@ -40,7 +38,6 @@ export class DurationValueAdapter implements IValueAdapter {
 
     /**
      * fmt - 1w 2d 5h 20m 10s
-     * @return {any}
      */
     fromFmt(fmt: any): any {
         let sec = 0;

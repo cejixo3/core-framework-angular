@@ -16,7 +16,6 @@ export abstract class ACollection extends BaseCollection implements ICollection 
 
     /**
      *
-     * @returns {string[]}
      */
     public fullTextSearchKeys(): string[] {
         return [];
@@ -31,7 +30,6 @@ export abstract class ACollection extends BaseCollection implements ICollection 
 
     /**
      * Provide list of keys that able to be sorted
-     * @returns {string[]}
      */
     public sortKeys(): string[] {
         return [];

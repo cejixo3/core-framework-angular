@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/core-framework-angular",
       "sourceRoot": "projects/core-framework-angular/src",
-      "prefix": "lib",
+      "prefix": "cfa",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

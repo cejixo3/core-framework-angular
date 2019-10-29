@@ -2,15 +2,15 @@
 
     <label>{{attribute.label()}}</label>
 
-    <div *ngFor="let val of value">
+    <div *ngFor="let model of value">
         <div class="input-group mb-3">
-            <input type="text"
-                   placeholder="{{attribute.label()}}"
-                   [ngClass]="{'form-control':true,'is-invalid':hasErrors()}"
-                   [name]="attribute.label()"
-                   [(ngModel)]="val">
+            <!--<input type="text"-->
+                   <!--placeholder="{{attribute.label()}}"-->
+                   <!--[ngClass]="{'form-control':true,'is-invalid':hasErrors()}"-->
+                   <!--[name]="attribute.label()"-->
+                   <!--[(ngModel)]="model">-->
             <div class="input-group-append">
-                <span class="input-group-text text-danger" (click)="remove(val)">- Remove</span>
+                <span class="input-group-text text-danger" (click)="remove(model)">- Remove</span>
             </div>
         </div>
         <br>

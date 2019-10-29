@@ -1,8 +1,8 @@
-import {Component} from '@angular/core/src/metadata/directives';
 import {IModel} from '../../Interfaces/DataStructures/Models/IModel';
-import {SL} from '../../SL';
+import {ServiceLocator} from '../../ServiceLocator';
 import {ActionNames, IModelBulkActon} from '../../Interfaces/IModelBulkActon';
 import {AModelBulkActon} from '../AModelBulkActon';
+import {Component} from "@angular/core";
 
 export class PModalAction extends AModelBulkActon implements IModelBulkActon {
 
@@ -49,7 +49,7 @@ export class PModalAction extends AModelBulkActon implements IModelBulkActon {
                 reject(new Error(`Could not to execute action "${this.label()}" because canRun fails`));
                 return;
             }
-            SL
+            ServiceLocator
                 .modal().basic(this._component, this._context)
                 .then(() => {
                     resolve();

@@ -1,5 +1,5 @@
-import {ServiceLocator} from '@Core/ServiceLocator';
-import {BreadCrumbs} from '@Core/Services/BreadCrumbs';
+import {ServiceLocator} from '../../../../../ServiceLocator';
+import {BreadCrumbs} from '../../../../../Services/BreadCrumbs';
 
 export abstract class ABreadCrumbComponent {
 

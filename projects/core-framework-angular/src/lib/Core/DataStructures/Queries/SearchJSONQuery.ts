@@ -25,7 +25,6 @@ export class SearchJSONQuery extends BaseQuery implements ICollectionQuery {
 
     /**
      * @inheritDoc
-     * @returns {{[p: string]: string}}
      */
     public sort(): { [p: string]: string } {
         return this._sort;
@@ -33,9 +32,6 @@ export class SearchJSONQuery extends BaseQuery implements ICollectionQuery {
 
     /**
      * @inheritDoc
-     * @param {string} attributeName
-     * @param {string} direction
-     * @returns {this}
      */
     public setSort(attributeName: string, direction: string): this {
         if ([SORT.ASC, SORT.DESC].indexOf(direction) === -1) {

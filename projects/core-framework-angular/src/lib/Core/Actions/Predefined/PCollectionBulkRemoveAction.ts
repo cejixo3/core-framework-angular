@@ -1,7 +1,7 @@
 import {ICollection} from '../../Interfaces/DataStructures/Collections/ICollection';
 import {AModelBulkActon} from '../AModelBulkActon';
 import {IModel} from '../../Interfaces/DataStructures/Models/IModel';
-import {SL} from '../../SL';
+import {ServiceLocator} from '../../ServiceLocator';
 import {ActionNames} from '../../Interfaces/IModelBulkActon';
 
 export class PCollectionBulkRemoveAction extends AModelBulkActon {
@@ -45,7 +45,7 @@ export class PCollectionBulkRemoveAction extends AModelBulkActon {
                 reject(new Error(`Could not to execute action "${this.label()}" because canRun fails`));
                 return;
             }
-            SL.modal()
+            ServiceLocator.modal()
                 .confirm(
                     this.label(),
                     `Do you really want to remove all list by this filter: ${JSON.stringify(this._collection.dataProvider().lastQuery().filter())}?`

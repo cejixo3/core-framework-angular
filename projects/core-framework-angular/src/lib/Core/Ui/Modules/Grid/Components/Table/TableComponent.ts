@@ -10,14 +10,14 @@ import {
     QueryList
 } from '@angular/core';
 import {CellDirective} from '../Columns/Cell/CellDirective';
-import {IModel} from '@Core/Interfaces/DataStructures/Models/IModel';
-import {IModelListActionEvent, ModelList} from '@Core/Providers/ModelList';
-import {CollectionQuery} from '@Core/Providers/CollectionQuery';
-import {GlobalSearch} from '@Core/Services/GlobalSearch';
-import {ICollectionQuery, SORT} from '@Core/Interfaces/DataStructures/Queries/ICollectionQuery';
-import {ICollection} from '@Core/Interfaces/DataStructures/Collections/ICollection';
-import {ActionNames} from '@Core/Interfaces/IModelBulkActon';
-import {IBaseModel} from '@Core/Interfaces/DataStructures/Models/IBaseModel';
+import {IModel} from '../../../../../Interfaces/DataStructures/Models/IModel';
+import {IModelListActionEvent, ModelList} from '../../../../../Providers/ModelList';
+import {CollectionQuery} from '../../../../../Providers/CollectionQuery';
+import {GlobalSearch} from '../../../../../Services/GlobalSearch';
+import {ICollectionQuery, SORT} from '../../../../../Interfaces/DataStructures/Queries/ICollectionQuery';
+import {ICollection} from '../../../../../Interfaces/DataStructures/Collections/ICollection';
+import {ActionNames} from '../../../../../Interfaces/IModelBulkActon';
+import {IBaseModel} from '../../../../../Interfaces/DataStructures/Models/IBaseModel';
 
 interface IColumnWrapper {
     headerName: string;
@@ -82,7 +82,6 @@ export class TableComponent implements OnInit, AfterViewInit, AfterContentInit, 
 
     /**
      * Load collection according to query
-     * @param {ICollectionQuery} q
      */
     private loadCollection(q: ICollectionQuery) {
         this.collection
@@ -98,7 +97,6 @@ export class TableComponent implements OnInit, AfterViewInit, AfterContentInit, 
 
     /**
      * On search hook
-     * @param term
      */
     private onSearch(term) {
         this.loadCollection(this.query.setTerm(term, this.collection.fullTextSearchKeys()));
@@ -180,8 +178,6 @@ export class TableComponent implements OnInit, AfterViewInit, AfterContentInit, 
 
     /**
      * Check is sort for attributeName enabled
-     * @param {string} attributeName
-     * @returns {boolean}
      */
     public isSortEnabled(attributeName: string): boolean {
         return this.query.sort().hasOwnProperty(attributeName);
@@ -189,8 +185,6 @@ export class TableComponent implements OnInit, AfterViewInit, AfterContentInit, 
 
     /**
      *
-     * @param {string} attributeName
-     * @returns {string}
      */
     public sortDir(attributeName: string): string {
         if (this.isSortEnabled(attributeName)) {
@@ -201,7 +195,6 @@ export class TableComponent implements OnInit, AfterViewInit, AfterContentInit, 
 
     /**
      * Toggle sort
-     * @param {string} attributeName
      */
     public toggleSort(attributeName: string) {
         this.query.setSort(attributeName, this.sortDir(attributeName) === this.SORT.ASC ? this.SORT.DESC : this.SORT.ASC);

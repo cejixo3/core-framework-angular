@@ -2,7 +2,7 @@ interface Map {
     [key: string]: string;
 }
 
-export interface IEndpointsList {
+export interface IEndpointServiceLocatorist {
     [key: string]: IEndpoint;
 }
 

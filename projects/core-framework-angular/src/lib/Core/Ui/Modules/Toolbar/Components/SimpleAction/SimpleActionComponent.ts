@@ -10,13 +10,12 @@ import {ModelList} from '../../../../../Providers/ModelList';
 export class SimpleActionComponent {
     @Input() action: IModelBulkActon;
 
-    constructor(public modelsList: ModelList) {
+    constructor(public modelServiceLocatorist: ModelList) {
 
     }
 
     /**
      * Provide root element css classes
-     * @return {string[]}
      */
     getRootCssClasses(): string[] {
         let css = ['action'];
@@ -36,24 +35,24 @@ export class SimpleActionComponent {
     }
 
     isDisabled(): boolean {
-        return !this.action.canRun(this.modelsList.list());
+        return !this.action.canRun(this.modelServiceLocatorist.list());
     }
 
     run(): void {
         this.action
-            .run(this.modelsList.list())
+            .run(this.modelServiceLocatorist.list())
             .then(() => {
                 try {
-                    this.modelsList.em().emit({name: this.action.name(), result: true});
+                    this.modelServiceLocatorist.em().emit({name: this.action.name(), result: true});
                 } catch (e) {
-                    this.modelsList.em().unsubscribe();
+                    this.modelServiceLocatorist.em().unsubscribe();
                 }
             })
             .catch((e) => {
                 try {
-                    this.modelsList.em().emit({name: this.action.name(), result: false});
+                    this.modelServiceLocatorist.em().emit({name: this.action.name(), result: false});
                 } catch (e) {
-                    this.modelsList.em().unsubscribe();
+                    this.modelServiceLocatorist.em().unsubscribe();
                 }
             });
     }

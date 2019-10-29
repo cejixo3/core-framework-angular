@@ -18,7 +18,7 @@ export class PCollectionBulkRemoveAction extends AModelBulkActon {
      * @inheritDoc
      */
     name(): string {
-        return <string>ActionNames.PCollectionBulkRemoveAction;
+        return <string> ActionNames.PCollectionBulkRemoveAction;
     }
 
 
@@ -62,5 +62,9 @@ export class PCollectionBulkRemoveAction extends AModelBulkActon {
                     reject(new Error(`Error during "${this.label()}" run`));
                 });
         });
+    }
+
+    private hello() {
+
     }
 }
